@@ -20,16 +20,17 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
-
         $this->validate($request, [
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed'
+            'password' => 'required|string|confirmed',
+            'birth_date' => 'required|date'
         ]);
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'birth_date' => Carbon::parse($request->birth_date)->toDateString()
         ]);
         $user->save();
         return response()->json([
