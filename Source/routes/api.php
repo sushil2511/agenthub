@@ -41,7 +41,11 @@ Route::group(['prefix' => 'auth'], function() {
            return $request->user();
         });
 
+
+        Route::get('population', 'ApiController@population');
+
         Route::get('logout', 'AuthController@logout');
 
     });
 });
+
