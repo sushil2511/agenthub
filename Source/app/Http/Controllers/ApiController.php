@@ -14,4 +14,10 @@ class ApiController extends Controller
 
         return $population;
     }
+
+    public function countries() {
+        $countries = Country::allCountries();
+
+        return $countries;
+    }
 }

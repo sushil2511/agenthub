@@ -43,6 +43,7 @@ Route::group(['prefix' => 'auth'], function() {
 
 
         Route::get('population', 'ApiController@population');
+        Route::get('countries', 'ApiController@countries');
 
         Route::get('logout', 'AuthController@logout');
 
